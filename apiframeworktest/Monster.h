@@ -16,8 +16,8 @@ public:
     void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
 public:
     virtual void Update() override;
-    virtual void	EnterCollision(Collider* _pOther);
-//    Monster* Clone() { return new Monster(*this); }
+    //virtual void	EnterCollision(Collider* _pOther);
+    //Monster* Clone() { return new Monster(*this); }
     CLONE(Monster);
 public:
     Monster();
