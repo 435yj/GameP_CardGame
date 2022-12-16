@@ -20,12 +20,12 @@ Collider::Collider(const Collider& _origin)
 Collider::~Collider()
 {
 }
-void Collider::FinalUpdate()
-{
-	// Object 위치를 따라가겠다.
-	Vec2 vObjectPos = m_pOwner->GetPos();
-	m_vFinalPos = vObjectPos + m_vOffsetPos;
-}
+//void Collider::FinalUpdate()
+//{
+//	// Object 위치를 따라가겠다.
+//	Vec2 vObjectPos = m_pOwner->GetPos();
+//	m_vFinalPos = vObjectPos + m_vOffsetPos;
+//}
 /*HPEN hGreenPen = Core::GetInst()->GetPen(PEN_TYPE::GREEN);
 	HPEN hDefaultPen = (HPEN)SelectObject(_dc, hGreenPen);*/
 	//HBRUSH hHollowBrush = Core::GetInst()->GetBrush(BRUSH_TYPE::HOLLOW);
@@ -49,17 +49,17 @@ void Collider::Render(HDC _dc)
 
 void Collider::StayCollision(Collider* _pOther)
 {
-	m_pOwner->StayCollision(_pOther);
+	//m_pOwner->StayCollision(_pOther);
 }
 
 void Collider::EnterCollision(Collider* _pOther)
 {
 	++m_iCheck;
-	m_pOwner->EnterCollision(_pOther);
+	//m_pOwner->EnterCollision(_pOther);
 }
 
 void Collider::ExitCollision(Collider* _pOther)
 {
 	--m_iCheck;
-	m_pOwner->ExitCollision(_pOther);
+	//m_pOwner->ExitCollision(_pOther);
 }

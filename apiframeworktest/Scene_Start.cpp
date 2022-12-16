@@ -6,7 +6,6 @@
 #include "Core.h"
 #include "Image.h"
 #include "PathMgr.h"
-#include "CollisionMgr.h"
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
@@ -66,15 +65,15 @@ void Scene_Start::Enter()
 	//AddObject(pObj, GROUP_TYPE::DEFAULT);
 	// 충돌 지정 
 	// Player - Monster 그룹 간의 충돌 체크
-	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
-	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
+	/*CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
+	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);*/
 
 }
 
 void Scene_Start::Exit()
 {
 	DeleteAll();
-	CollisionMgr::GetInst()->CheckReset();
+	//CollisionMgr::GetInst()->CheckReset();
 }
 
 void Scene_Start::Update()

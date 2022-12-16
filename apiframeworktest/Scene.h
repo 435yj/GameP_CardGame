@@ -12,7 +12,7 @@ public:
 	const wstring& GetName() { return m_strName; }
 
 	virtual void Update();
-	virtual void FinalUpdate();
+	//virtual void FinalUpdate();
 	virtual void Render(HDC _dc);
 	virtual void Enter() abstract; // 해당 Scene에 진입시 호출
 	virtual void Exit() abstract;  // 해당 Scene을 나올때 호출

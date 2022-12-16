@@ -15,6 +15,10 @@
 #define CLONE(type) type* Clone() {return new type(*this);}
 #define PI 3.1415926535897932384f
 
+#define WINHALFSIZEX GetSystemMetrics(SM_CXSCREEN) / 2
+#define WINHALFSIZEY GetSystemMetrics(SM_CYSCREEN) / 2
+
+
 enum class KEY_STATE
 {
 	NONE, // 눌리지 않았고, 이전에도 눌리지 않는 상태

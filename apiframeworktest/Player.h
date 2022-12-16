@@ -15,7 +15,7 @@ public:
     //{}
     ~Player();
 private:
-    void CreateBullet();
+   // void CreateBullet();
 
 //    Player* Clone{ return new Player(*this); }
     CLONE(Player);
