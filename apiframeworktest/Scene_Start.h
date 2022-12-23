@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "Scene.h"
+
 class Scene_Start :
     public Scene
 {
@@ -10,8 +11,11 @@ public:
 public:
     Scene_Start();
     virtual ~Scene_Start();
+    void HideConsole();
+    void ShowConsole();
+    bool IsConsoleVisible();
 
-private:
-    class HpBar* m_pHpBar;
+public :
+    LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 };
 
