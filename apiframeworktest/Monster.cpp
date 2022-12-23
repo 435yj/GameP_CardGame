@@ -1,15 +1,25 @@
 #include "pch.h"
 #include "Monster.h"
+#include "ResMgr.h"
 #include "TimeMgr.h"
+#include "Image.h"
+#include "Animator.h"
+#include "Animation.h"
 Monster::Monster()
 	: m_fSpeed(100.f)
 	, m_fMaxDistance(50.f)
-	, m_vCenterPos(Vec2(0.f,0.f))
+	, m_vCenterPos(Vec2(0.f, 0.f))
 	, m_iDir(1)
 	, m_iHp(5)
 {
+	m_pImage = ResMgr::GetInst()->ImgLoad(L"EnemyPng", L"Image\\enemy.bmp");
+
 	//CreateCollider();
 	//GetCollider()->SetScale(Vec2(40.f, 40.f));
+
+	/*CreateAnimator();
+	GetAnimator()->CreateAnimation(L"Jiwootest", m_pImage, Vec2(0.f, 100.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+	GetAnimator()->Play(L"Jiwootest", true);*/
 }
 
 Monster::~Monster()
@@ -18,25 +28,29 @@ Monster::~Monster()
 
 void Monster::Update()
 {
-	Vec2 vCurPos = GetPos();
-	// 진행방향으로 시간당 m_fSpeed만큼 이동
-//	vCurPos.x += m_fSpeed * fDT * m_iDir;
-	vCurPos.x += fDT* m_fSpeed * m_iDir;
-
-	// 배회 거리 기준량을 넘어섰는지 확인
-	//if (m_fMaxDistance < abs(m_vCenterPos.x - vCurPos.x))
-	//{
-
-	//}
-	float fDist = abs(m_vCenterPos.x - vCurPos.x) - m_fMaxDistance;
-	if (fDist > 0.f)
-	{
-		m_iDir *= -1;
-		vCurPos.x += fDist * m_iDir;
-	}
-	SetPos(vCurPos);
+	//GetAnimator()->Update();
 }
 
+void Monster::Render(HDC _dc)
+{
+	int Width = (int)m_pImage->GetWidth();
+	int Height = (int)m_pImage->GetHeight();
+
+	//Component_Render(_dc);
+	//마젠타 색상 뺄때 transparent: 투명한
+
+	Vec2 vPos = GetPos();
+	TransparentBlt(_dc
+			, (int)(vPos.x - (float)(Width / 2))
+			, (int)(vPos.y - (float)(Height / 2))
+			,Width, Height
+		    , m_pImage->GetDC()
+		    ,0,0, Width, Height
+		    , RGB(255,0,255));
+}
+
+
+// 
 //void Monster::EnterCollision(Collider* _pOther)
 //{
 //	Object* pOtherObj = _pOther->GetObj();

@@ -10,5 +10,8 @@ public:
 public:
     Scene_Start();
     virtual ~Scene_Start();
+
+private:
+    class HpBar* m_pHpBar;
 };
 
