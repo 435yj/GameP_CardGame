@@ -5,7 +5,7 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "PathMgr.h"
-#include "CollisionMgr.h"
+//#include "CollisionMgr.h"
 #include "EventMgr.h"
 #include "SoundMgr.h"
 Core::Core()
@@ -46,7 +46,7 @@ int Core::Init(HWND _hWnd, POINT _ptResolution)
 	SelectObject(m_memDC, m_hBit);
 
 	// 자주 사용할 펜 및 브러쉬 생성
-	CreateBrushPen();
+	//CreateBrushPen();
 
 	// ===== Manager Init =====
 	SoundMgr::GetInst()->Init();
@@ -74,7 +74,7 @@ void Core::Update()
 	SceneMgr::GetInst()->Update();
 
 	// ==== 충돌 체크 ====
-	CollisionMgr::GetInst()->Update();
+	//CollisionMgr::GetInst()->Update();
 }
 
 
@@ -94,13 +94,14 @@ void Core::Render()
 
 }
 
-void Core::CreateBrushPen()
-{
-	// HOLLOW
-	m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
-
-	//RED GREEN BLUE PEN
-	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-	m_arrPen[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
-	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
-}
+//
+//void Core::CreateBrushPen()
+//{
+//	// HOLLOW
+//	m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+//
+//	//RED GREEN BLUE PEN
+//	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+//	m_arrPen[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+//	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
+//}

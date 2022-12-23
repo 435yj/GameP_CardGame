@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+class Image;
 class Monster :
     public Object
 {
@@ -9,6 +10,8 @@ private:
     float   m_fMaxDistance;
     int     m_iDir; // 1, -1
     int     m_iHp;
+private:
+    Image* m_pImage;
 public:
     float GetSpeed() { return m_fSpeed; }
     void SetSpeed(float _f) { m_fSpeed = _f; }
@@ -16,8 +19,9 @@ public:
     void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
 public:
     virtual void Update() override;
-    virtual void	EnterCollision(Collider* _pOther);
-//    Monster* Clone() { return new Monster(*this); }
+    void Render(HDC _dc) override;
+    //virtual void	EnterCollision(Collider* _pOther);
+    //Monster* Clone() { return new Monster(*this); }
     CLONE(Monster);
 public:
     Monster();

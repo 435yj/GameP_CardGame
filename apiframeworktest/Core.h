@@ -38,6 +38,6 @@ public:
 private:
 	void Update();
 	void Render();
-	void CreateBrushPen();
+	//void CreateBrushPen();
 };
 
