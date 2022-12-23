@@ -93,6 +93,7 @@ void Core::Render()
 		EventMgr::GetInst()->Update();
 
 }
+
 //
 //void Core::CreateBrushPen()
 //{

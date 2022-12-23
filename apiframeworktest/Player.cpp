@@ -10,6 +10,7 @@
 #include "ResMgr.h"
 #include "Animator.h"
 #include "Animation.h"
+
 Player::Player()
 {
 	// collider »õ¼º
@@ -39,12 +40,6 @@ Player::~Player()
 void Player::Update()
 {
 	GetAnimator()->Update();
-
-	float playerPosX = WINHALFSIZEX - 500.f;
-	float playerPosY = WINHALFSIZEY + 250.f;
-
-	Vec2 playerSetPos = Vec2({ playerPosX, playerPosY });
-	SetPos(playerSetPos);
 }
 
 void Player::Render(HDC _dc)
